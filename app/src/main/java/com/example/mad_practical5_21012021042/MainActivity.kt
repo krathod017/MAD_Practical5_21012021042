@@ -20,17 +20,37 @@ class MainActivity : AppCompatActivity() {
         btnbrowse.setOnClickListener {
             openbrowser(browsetxt.text.toString())
         }
-
+        val btncall:Button=findViewById(R.id.button2)
+        val calltxt:EditText=findViewById(R.id.editTextText2)
+        btncall.setOnClickListener{
+            opencall(calltxt.text.toString())
+        }
+        val callLog:Button=findViewById(R.id.button3)
+        callLog.setOnClickListener{
+            opencallLog()
+        }
+        val gallery:Button=findViewById(R.id.button4)
+        callLog.setOnClickListener {
+            opengalary()
+        }
+        val camera:Button=findViewById(R.id.button5)
+        callLog.setOnClickListener{
+            opencamera()
+        }
+        val Alarm:Button=findViewById(R.id.button6)
+        callLog.setOnClickListener{
+            openAlarm()
+        }
     }
     fun openbrowser(url: String){
         Intent(Intent.ACTION_VIEW, Uri.parse(url)).also{
             startActivity(it)
-
         }
-
     }
     fun opencall(num:String){
-
+        Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:$no")).also{
+            startActivity(it)
+        }
     }
     fun opencallLog(){
          Intent(Intent.ACTION_VIEW).setType(CallLog.Calls.CONTENT_TYPE).also{
